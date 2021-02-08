@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PoShLog.Sinks.Http</name>
+    </assembly>
+    <members>
+        <member name="T:PoShLog.Sinks.Http.CmdLets.AddSinkHttp">
+            <summary>
+            <para type="synopsis">Writes log events into given server over the network using HTTP</para>
+            <para type="description">Adds a non-durable sink that sends log events using HTTP POST over the network.</para>
+            <para type="description">A non-durable sink will lose data after a system or process restart.</para>
+            </summary>
+            <example>
+            <code>PS> New-Logger | Add-SinkHttp -RequestUri 'https://requestbin.net/r/6y06j5z8' | Start-Logger</code>
+            </example>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.LoggerConfig">
+            <summary>
+            <param type="description">Instance of LoggerConfiguration.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.RequestUri">
+            <summary>
+            <param type="description">The URI the request is sent to.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.BatchPostingLimit">
+            <summary>
+            <param type="description">The maximum number of events to post in a single batch. Default value is 1000.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.QueueLimit">
+            <summary>
+            <param type="description">The maximum number of events stored in the queue in memory, waiting to be posted over the network. Default value is infinitely.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.Period">
+            <summary>
+            <param type="description">The time to wait between checking for event batches. Default value is 2 seconds.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.TextFormatter">
+            <summary>
+            <param type="description">he formatter rendering individual log events into text, for example JSON. Default value is <see cref="T:Serilog.Sinks.Http.TextFormatters.NormalRenderedTextFormatter" />.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.BatchFormatter">
+            <summary>
+            <param type="description">The formatter batching multiple log events into a payload that can be sent over the network. Default value is <see cref="T:Serilog.Sinks.Http.BatchFormatters.DefaultBatchFormatter" />.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.RestrictedToMinimumLevel">
+            <summary>
+            <param type="description">The minimum level for events passed through the sink. Default value is <see cref="F:Serilog.Events.LevelAlias.Minimum" />.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.HttpClient">
+            <summary>
+            <param type="description">A custom <see cref="T:Serilog.Sinks.Http.IHttpClient" /> implementation. Default value is <see cref="T:System.Net.Http.HttpClient" />.</param>
+            </summary>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.Configuration">
+            <summary>
+            <param type="description">Configuration passed to HttpClient. Parameter is either manually specified when configuring the sink in source code or automatically passed in when configuring the sink using <see href="https://www.nuget.org/packages/Serilog.Settings.Configuration">Serilog.Settings.Configuration</see>.</param>
+            </summary>
+        </member>
+        <member name="M:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.ProcessRecord">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
