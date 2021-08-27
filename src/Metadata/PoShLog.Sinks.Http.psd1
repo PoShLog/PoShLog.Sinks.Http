@@ -18,7 +18,7 @@ ModuleVersion = '1.0.0'
 # CompatiblePSEditions = @()
 
 # ID used to uniquely identify this module
-GUID = 'dc6daa4a-761d-44f3-9f73-07bc10940abf'
+GUID = '3dbab483-627b-46d9-9b73-17392f02f067'
 
 # Author of this module
 Author = 'Tomas Bouda'
@@ -31,7 +31,7 @@ Copyright = '(c) Tomas Bouda. All rights reserved.'
 
 # Description of the functionality provided by this module
 Description = 'PoShLog.Sinks.Http is extension module for PoShLog core library - https://www.powershellgallery.com/packages/PoShLog.
-It contains sink that publishes log messages into given server over the network using HTTP.'
+It contains sink that publishes log messages into given server over the network using HTTP POST.'
 
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '5.1'
@@ -70,10 +70,10 @@ RequiredModules = @(@{ModuleName = 'PoShLog'; GUID = '6eabf344-4f00-4cc0-95d4-d3
 NestedModules = @('bin\PoShLog.Sinks.Http.dll')
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = 'Add-SinkHttp'
+FunctionsToExport = @('Add-SinkHttp', 'Get-ApiKeyHttpClient')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-CmdletsToExport = 'Add-SinkHttp'
+CmdletsToExport = @('Add-SinkHttp', 'Get-ApiKeyHttpClient')
 
 # Variables to export from this module
 VariablesToExport = @()
