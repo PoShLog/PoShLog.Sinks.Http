@@ -67,5 +67,52 @@
         <member name="M:PoShLog.Sinks.Http.CmdLets.AddSinkHttp.ProcessRecord">
             <inheritdoc />
         </member>
+        <member name="T:PoShLog.Sinks.Http.CmdLets.GetApiKeyHttpClient">
+            <summary>
+            <para type="synopsis">Gets instance of <see cref="T:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient"/></para>
+            <para type="description">Gets instance of <see cref="T:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient"/> that is then used by Add-SinkHttp cmdlet.</para>
+            </summary>
+            <example>
+            <code>PS> New-Logger | Add-SinkHttp -RequestUri 'https://requestbin.net/r/6y06j5z8' -HttpClient (Get-ApiKeyHttpClient -ApiKey '...') | Start-Logger</code>
+            </example>
+        </member>
+        <member name="P:PoShLog.Sinks.Http.CmdLets.GetApiKeyHttpClient.ApiKey">
+            <summary>
+            <param type="description">Api key to be used in X-Api-key header</param>
+            </summary>
+        </member>
+        <member name="M:PoShLog.Sinks.Http.CmdLets.GetApiKeyHttpClient.ProcessRecord">
+            <inheritdoc />
+        </member>
+        <member name="T:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient">
+            <summary>
+            HttpClient that authenticates each request using X-Api-key header
+            </summary>
+        </member>
+        <member name="M:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient.#ctor">
+            <summary>
+            Creates instance of <see cref="T:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient"/>
+            </summary>
+        </member>
+        <member name="M:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient.#ctor(System.String)">
+            <summary>
+            Creates instance of <see cref="T:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient"/> with initial api key
+            </summary>
+            <param name="apiKey"></param>
+        </member>
+        <member name="M:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient.Configure(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configures the HTTP client.
+            </summary>
+            <param name="configuration">The application configuration properties.</param>
+        </member>
+        <member name="M:PoShLog.Sinks.Http.HttpClients.ApiKeyHttpClient.PostAsync(System.String,System.Net.Http.HttpContent)">
+            <summary>
+             Sends a POST request to the specified Uri as an asynchronous operation.
+            </summary>
+            <param name="requestUri">The Uri the request is sent to.</param>
+            <param name="content">The HTTP request content sent to the server.</param>
+            <returns>The task object representing the asynchronous operation.</returns>
+        </member>
     </members>
 </doc>
